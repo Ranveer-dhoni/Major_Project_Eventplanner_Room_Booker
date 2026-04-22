@@ -25,12 +25,13 @@ function login() {
     user === localStorage.getItem("teacherUser") &&
     pass === localStorage.getItem("teacherPass")
   ) {
-    // Use full, absolute URL to avoid any path issues
-    window.location.href = "https://ranveer-dhoni.github.io/Major_Project_Eventplanner_Room_Booker/dashboard.html";
+    // FULL ABSOLUTE URL — this bypasses ALL redirect issues
+    window.location.replace("https://ranveer-dhoni.github.io/Major_Project_Eventplanner_Room_Booker/dashboard.html");
   } else {
     alert("Incorrect login");
   }
 }
+
 
 
 // ----- EVENTS -----
