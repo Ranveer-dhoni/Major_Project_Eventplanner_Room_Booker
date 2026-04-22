@@ -66,3 +66,17 @@ function bookRoom() {
 
     loadBookings();
 }
+
+function loadBookings() {
+    let list = document.getElementById("roomList");
+    if (!list) return;
+
+    list.innerHTML = "";
+    let bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+
+    for (let b of bookings) {
+        let item = document.createElement("li");
+        item.textContent = `$ {b.room} - ${b.date}`;
+        list.appendChild(item);
+    }
+}
