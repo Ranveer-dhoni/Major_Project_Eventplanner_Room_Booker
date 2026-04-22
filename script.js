@@ -34,3 +34,17 @@ function createEvent() {
 
     loadEvents();
 }
+
+function loadEvents() {
+    let list = document.getElementById("eventList");
+    if (!list) return;
+
+    list.innerHTML = "";
+    let events = JSON.parse(localStorage.getItem("events")|| "[]");
+
+    for (let e of events) {
+        let item = document.createElement("li");
+        item.textContent = `${e.name}-${e.date}`;
+        list.appendChild(item)
+    }
+}
