@@ -80,3 +80,6 @@ function loadBookings() {
         list.appendChild(item);
     }
 }
+
+loadEvents()
+loadBookings()
