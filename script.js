@@ -8,3 +8,6 @@ function encyrpt(text) {
     }
     return result;
 }
+
+localStorage.setItem("teacherUser", "teacher");
+localStorage.setItem("teacherPass", encrypt("password123"));
