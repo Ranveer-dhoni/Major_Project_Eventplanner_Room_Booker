@@ -11,3 +11,15 @@ function encyrpt(text) {
 
 localStorage.setItem("teacherUser", "teacher");
 localStorage.setItem("teacherPass", encrypt("password123"));
+
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = encrypt(document.getElementById("password").value);
+
+    if (user === localStorage.getItem("teacherUser")&&
+        pass === localStorage.getItem("teacherPass")) {
+       window.location.href = "dashboard.html";
+        } else {
+          alert("Incorrect login");
+        }
+    }
