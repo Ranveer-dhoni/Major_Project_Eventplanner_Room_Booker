@@ -107,21 +107,21 @@ function loadBookings() {
 }
 
 function loadCalendar() {
-  let calendar = document.getElementById("calendar");
+  const calendar = document.getElementById("calendar");
   if (!calendar) return;
 
-  let events = JSON.parse(localStorage.getItem("events") || "[]");
-  let bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+  const events = JSON.parse(localStorage.getItem("events") || "[]");
+  const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
 
-  calendar.innerHTML = "";
+  calendar.innerHTML = ""; // clear old items
 
-  let combined = [
+  const combined = [
     ...events.map(e => ({ type: "Event", name: e.name, date: e.date })),
     ...bookings.map(b => ({ type: "Room", name: b.room, date: b.date }))
   ];
 
   combined.forEach(item => {
-    let div = document.createElement("div");
+    const div = document.createElement("div");
     div.style.padding = "10px";
     div.style.margin = "5px 0";
     div.style.background = "rgba(255,255,255,0.2)";
@@ -131,6 +131,7 @@ function loadCalendar() {
     calendar.appendChild(div);
   });
 }
+
 
 
 
