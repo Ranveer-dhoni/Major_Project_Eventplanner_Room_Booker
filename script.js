@@ -1,4 +1,4 @@
-// Encryption function (Caesar cipher)
+// Simple Caesar cipher encryption
 function encrypt(text) {
   let result = "";
   for (let i = 0; i < text.length; i++) {
@@ -7,24 +7,34 @@ function encrypt(text) {
   return result;
 }
 
-// Default login credentials
-localStorage.setItem("teacherUser", "teacher");
-localStorage.setItem("teacherPass", encrypt("password123"));
+// ----- LOGIN SETUP -----
+
+// Set default login ONCE
+// Username: teacher
+// Password: password123
+if (!localStorage.getItem("teacherUser")) {
+  localStorage.setItem("teacherUser", "teacher");
+  localStorage.setItem("teacherPass", encrypt("password123"));
+}
 
 // Login function
 function login() {
   let user = document.getElementById("username").value;
   let pass = encrypt(document.getElementById("password").value);
 
-  if (user === localStorage.getItem("teacherUser") &&
-      pass === localStorage.getItem("teacherPass")) {
-    window.location.href = "dashboard.html";
+  if (
+    user === localStorage.getItem("teacherUser") &&
+    pass === localStorage.getItem("teacherPass")
+  ) {
+    // IMPORTANT: matches your file name EXACTLY
+    window.location.href = "Dashboard.html";
   } else {
     alert("Incorrect login");
   }
 }
 
-// Create event
+// ----- EVENTS -----
+
 function createEvent() {
   let name = document.getElementById("eventName").value;
   let date = document.getElementById("eventDate").value;
@@ -41,7 +51,6 @@ function createEvent() {
   loadEvents();
 }
 
-// Load events
 function loadEvents() {
   let list = document.getElementById("eventList");
   if (!list) return;
@@ -50,13 +59,14 @@ function loadEvents() {
   let events = JSON.parse(localStorage.getItem("events") || "[]");
 
   for (let e of events) {
-    let item = document.createElement("li");
-    item.textContent = `${e.name} — ${e.date}`;
-    list.appendChild(item);
+    let li = document.createElement("li");
+    li.textContent = `${e.name} — ${e.date}`;
+    list.appendChild(li);
   }
 }
 
-// Book room
+// ----- ROOM BOOKINGS -----
+
 function bookRoom() {
   let room = document.getElementById("roomName").value;
   let date = document.getElementById("roomDate").value;
@@ -81,7 +91,6 @@ function bookRoom() {
   loadBookings();
 }
 
-// Load bookings
 function loadBookings() {
   let list = document.getElementById("roomList");
   if (!list) return;
@@ -90,12 +99,13 @@ function loadBookings() {
   let bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
 
   for (let b of bookings) {
-    let item = document.createElement("li");
-    item.textContent = `${b.room} — ${b.date}`;
-    list.appendChild(item);
+    let li = document.createElement("li");
+    li.textContent = `${b.room} — ${b.date}`;
+    list.appendChild(li);
   }
 }
 
-// Auto-load on dashboard
+// Auto-run on dashboard
 loadEvents();
 loadBookings();
+
