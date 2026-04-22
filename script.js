@@ -23,3 +23,14 @@ function login() {
           alert("Incorrect login");
         }
     }
+
+function createEvent() {
+    let name = document.getElementById("eventName").value;
+    let date = document.getElementById("eventDate").value;
+
+    let events = JSON.parse(localStorage.getItem("events") ||"[]");
+    events.push({name,date});
+    localStorage.setItem("events", JSON.stringify(events));
+
+    loadEvents();
+}
