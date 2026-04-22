@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+  <title>Dashboard</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    input, button { margin: 5px; padding: 8px; width: 250px; }
+    .section { margin-bottom: 30px; }
+  </style>
 </head>
 <body>
-    <h2>Event Planner and Room Bookings</h2>
-</body>
-</html>
 
-<div>
-    <h3> Create Event</h3>
+  <h2>Event Planner & Room Booking System</h2>
+
+  <div class="section">
+    <h3>Create Event</h3>
     <input id="eventName" placeholder="Event name"><br>
+    <input id="eventDate" type="date"><br>
     <button onclick="createEvent()">Add Event</button>
-</div>
 
-<h3>Events</h3>
-<ul id="eventList"></ul>
+    <h3>Events</h3>
+    <ul id="eventList"></ul>
+  </div>
 
-<div>
+  <div class="section">
     <h3>Book Room</h3>
     <input id="roomName" placeholder="Room name"><br>
     <input id="roomDate" type="date"><br>
     <button onclick="bookRoom()">Book Room</button>
-</div>
 
-<h3>Room Bookings</h3>
-<ul id="roomlist"></ul>
+    <h3>Room Bookings</h3>
+    <ul id="roomList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
