@@ -17,7 +17,6 @@ if (!localStorage.getItem("teacherUser")) {
   localStorage.setItem("teacherPass", encrypt("password123"));
 }
 
-// Login function
 function login() {
   let user = document.getElementById("username").value;
   let pass = encrypt(document.getElementById("password").value);
@@ -26,12 +25,13 @@ function login() {
     user === localStorage.getItem("teacherUser") &&
     pass === localStorage.getItem("teacherPass")
   ) {
-    // FIXED: matches your actual file name EXACTLY
-    window.location.href = "dashboard.html";
+    // Use full, absolute URL to avoid any path issues
+    window.location.href = "https://ranveer-dhoni.github.io/Major_Project_Eventplanner_Room_Booker/dashboard.html";
   } else {
     alert("Incorrect login");
   }
 }
+
 
 // ----- EVENTS -----
 
