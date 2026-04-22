@@ -138,6 +138,6 @@ function loadCalendar() {
 
 loadEvents();
 loadBookings();
-loadcalendar();
+loadCalendar();
 
 
