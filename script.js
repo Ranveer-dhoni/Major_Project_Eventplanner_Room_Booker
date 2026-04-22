@@ -106,9 +106,38 @@ function loadBookings() {
   }
 }
 
+function loadCalendar() {
+  let calendar = document.getElementById("calendar");
+  if (!calendar) return;
+
+  let events = JSON.parse(localStorage.getItem("events") || "[]");
+  let bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+
+  calendar.innerHTML = "";
+
+  let combined = [
+    ...events.map(e => ({ type: "Event", name: e.name, date: e.date })),
+    ...bookings.map(b => ({ type: "Room", name: b.room, date: b.date }))
+  ];
+
+  combined.forEach(item => {
+    let div = document.createElement("div");
+    div.style.padding = "10px";
+    div.style.margin = "5px 0";
+    div.style.background = "rgba(255,255,255,0.2)";
+    div.style.borderRadius = "8px";
+
+    div.textContent = `${item.date} — ${item.type}: ${item.name}`;
+    calendar.appendChild(div);
+  });
+}
+
+
+
 // Auto-run on dashboard
+
 loadEvents();
 loadBookings();
-
+loadCalendar();
 
 
