@@ -26,8 +26,8 @@ function login() {
     user === localStorage.getItem("teacherUser") &&
     pass === localStorage.getItem("teacherPass")
   ) {
-    // IMPORTANT: This MUST match your file name EXACTLY
-    window.location.href = "Dashboard.html";
+    // FIXED: matches your actual file name EXACTLY
+    window.location.href = "dashboard.html";
   } else {
     alert("Incorrect login");
   }
@@ -108,5 +108,6 @@ function loadBookings() {
 // Auto-run on dashboard
 loadEvents();
 loadBookings();
+
 
 
