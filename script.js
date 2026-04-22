@@ -48,3 +48,21 @@ function loadEvents() {
         list.appendChild(item)
     }
 }
+
+function bookRoom() {
+    let room = document.getElementById("roomName").value;
+    let date = document.getElementById("roomDate").value;
+
+    let bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+
+    for (let b of bookings) {
+        if (b.room === room && b.date === data) {
+            alert("Room already booked");
+            return;
+        }
+    }
+    bookings.push({room,date});
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    loadBookings();
+}
