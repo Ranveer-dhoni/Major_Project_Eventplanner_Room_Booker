@@ -9,7 +9,7 @@ function encrypt(text) {
 
 // ----- LOGIN SETUP -----
 
-// Set default login ONCE
+// Default login:
 // Username: teacher
 // Password: password123
 if (!localStorage.getItem("teacherUser")) {
@@ -26,7 +26,7 @@ function login() {
     user === localStorage.getItem("teacherUser") &&
     pass === localStorage.getItem("teacherPass")
   ) {
-    // IMPORTANT: matches your file name EXACTLY
+    // IMPORTANT: This MUST match your file name EXACTLY
     window.location.href = "Dashboard.html";
   } else {
     alert("Incorrect login");
@@ -108,4 +108,5 @@ function loadBookings() {
 // Auto-run on dashboard
 loadEvents();
 loadBookings();
+
 
