@@ -75,3 +75,14 @@ ul {
     transform: scale(1.05);
     opacity: 0.9;
 }
+
+.input-box {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
