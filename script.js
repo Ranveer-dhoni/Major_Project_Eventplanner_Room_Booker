@@ -26,7 +26,7 @@ function login() {
     pass === localStorage.getItem("teacherPass")
   ) {
     // FULL ABSOLUTE URL — this bypasses ALL redirect issues
-    window.location.replace("https://ranveer-dhoni.github.io/Major_Project_Eventplanner_Room_Booker/dashboard.html");
+    window.location.replace("home.html");
   } else {
     alert("Incorrect login");
   }
@@ -36,35 +36,51 @@ function login() {
 
 // ----- EVENTS -----
 
+let events = JSON.parse(localStorage.getItem("events")|| "[]");
+
+function saveEvents() {
+  localStorage.setItem("events", JSON.stringify(events));
+}
+
 function createEvent() {
   let name = document.getElementById("eventName").value;
   let date = document.getElementById("eventDate").value;
+  let description = document.getElementById("eventDescription").value.trim();
+
 
   if (!name || !date) {
     alert("Please fill in all fields");
     return;
   }
+events.push({name,date,description});
+saveEvents();
+renderEvents();
 
-  let events = JSON.parse(localStorage.getItem("events") || "[]");
-  events.push({ name, date });
-  localStorage.setItem("events", JSON.stringify(events));
-
-  loadEvents();
+document.getElementById("eventName").value = "";
+document.getElementById("eventDate").value = "";
+document.getElementById("eventDescrption").value = "";
 }
 
-function loadEvents() {
+function renderEvents() {
   let list = document.getElementById("eventList");
   if (!list) return;
 
   list.innerHTML = "";
-  let events = JSON.parse(localStorage.getItem("events") || "[]");
 
-  for (let e of events) {
+  events.forEach(e => {
     let li = document.createElement("li");
-    li.textContent = `${e.name} — ${e.date}`;
+    li.innerHTML = `
+      <strong>${e.name}</strong> — ${e.date}<br>
+      <em>${e.description || "No description provided"}</em>
+    `;
     list.appendChild(li);
-  }
+  });
 }
+
+function loadEvents() {
+  renderEvents();
+}
+
 
 // ----- ROOM BOOKINGS -----
 
