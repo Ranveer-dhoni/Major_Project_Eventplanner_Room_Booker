@@ -18,9 +18,19 @@
         <div class="nav-buttons">
             <button class=""nav-btn" onclick="location.href='dashboard.html'">Dashboard</button>
             <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
+            <button class="nav-btn" onclick="location.href='bookings.html'">Bookings</button>
+            <button class="nav-btn" onclick="location.href='events.html'">Events</button>
+            <button class="nav-btn" onclick="logout()">Logout</button>
 
-            </button></button>
+
         </div>
     </div>
+
+    <script src="auth.js"></script>
+    <script>
+        //Display role on home page
+        const role = localStorage.getItem("role");
+        document.getElementById("userRole").innerText = role.charAt(0).toUpperCase() + role.slice(1);
+    </script>
 </body>
 </html>
