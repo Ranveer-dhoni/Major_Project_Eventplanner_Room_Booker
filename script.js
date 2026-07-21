@@ -1,4 +1,4 @@
-// Simple Caesar cipher encryption
+ // Simple Caesar cipher encryption
 function encrypt(text) {
   let result = "";
   for (let i = 0; i < text.length; i++) {
