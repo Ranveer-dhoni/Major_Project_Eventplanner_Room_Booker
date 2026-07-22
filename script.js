@@ -173,5 +173,3 @@ loadEvents();
 loadBookings();
 loadCalendar();
 applyRoleRestrictions();
-
-
