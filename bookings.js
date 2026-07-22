@@ -58,3 +58,16 @@ function renderBookings() {
         }
     });
 }
+
+// ROLE RESTRICTIONS
+function applyBookingRestrictions() {
+    const role = localStorage.getItem("role");
+
+    if (role === "student") {
+        const teacherSection = document.getElementById("teacherBookingSection");
+        if (teacherSection) teacherSection.style.display = "none";
+    }
+}
+
+renderBookings();
+applyBookingRestrictions();
