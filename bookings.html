@@ -10,7 +10,37 @@
         <!-- Navigation Bar -->
          <div class="nav-bar card">
             <button class="nav-btn" onclick="location.href='home.html'">Home</button>
-            <button class="nav-btn" onclick="location.href='dashboard.html'"
+            <button class="nav-btn" onclick="location.href='dashboard.html'">Dashboard</button>
+            <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
+            <button class="nav-btn" onclick="location.href='events.html'">Events</button>
+         </div>
+
+         <div class="container">
+
+            <h2> Room Bookings</h2>
+
+            <!-- Teacher-only booking form -->
+             <div id="teacherBookingSection" class="card">
+                <h3>Create a booking</h3>
+
+                <input id="roomName" placeholders="Room Name">
+                <input id="roomDate" type="date">
+
+                <button onclick="createBooking()">Add Booking</button>
+             </div>
+
+             <!-- Current bookings -->
+             <div class="card">
+                <h3> Past Bookings</h3>
+                <ul id="pastBookings"></ul>
+             </div>
+
+             <!-- Future bookings -->
+              <div class="card">
+                <h3>Future Bookings</h3>
+                <ul id="futureBookings"></ul>
+              </div>
+           
          </div>
     </body>
 </html>
