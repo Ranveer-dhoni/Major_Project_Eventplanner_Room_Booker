@@ -1,4 +1,5 @@
- // Simple Caesar cipher encryption
+
+// Simple Caesar cipher encryption
 function encrypt(text) {
   let result = "";
   for (let i = 0; i < text.length; i++) {
@@ -31,6 +32,21 @@ function login() {
     alert("Incorrect login");
   }
 }
+
+// ROLE-BASED UI CONTROL
+
+function applyRoleRestrictions() {
+  const role =localStorage.getItem("role");
+
+  // if student, hide teacher-only sections
+  if (role === "student") {
+    const eventSection = document.getElementById("teacherEventSection");
+    const roomSection = document.getElementById("teacherRoomSection");
+
+    if (eventSection) eventSection.style.display = "none";
+    if (roomSection) roomSection.style.display = "none";
+    
+  }
 
 
 
@@ -156,5 +172,6 @@ function loadCalendar() {
 loadEvents();
 loadBookings();
 loadCalendar();
+applyRoleRestrictions();
 
 
