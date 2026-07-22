@@ -4,7 +4,10 @@
   <title>Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body onload="checkAccess()">
+
+  <!-- Navigation Bar -->
   <div class="nav-bar card">
     <button class="nav-btn" onclick="location.href='home.html'">Home</button>
     <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
@@ -13,63 +16,45 @@
   </div>
 
   <div class="container">
-    <h2>Event Planner & Room Booking</h2>
 
-    <label for="eventDescription">Event Description;</label>
-    <textarea id="eventDescription" placeholder="Describe the event..." class="input-box"></textarea>
-    
+    <h2>Event Planner</h2>
 
-    <div class="section">
+    <!-- TEACHER EVENT SECTION -->
+    <div id="teacherEventSection" class="card">
       <h3>Create Event</h3>
-      <input id="eventName" placeholder="Event name">
-      <input id="eventDate" type="date">
-      <button onclick="createEvent()">Add Event</button>
 
-    <div id="teacherEventSection">
-      <!--Event creation form-->
-      <h2>Create Event</h2>
-
-      <input id="eventName" placeholders="Event Name">
+      <input id="eventName" placeholder="Event Name">
       <input id="eventDate" type="date">
 
       <label for="eventDescription">Event Description:</label>
-      <textarea id="eventDescription" placeholder="Describe the event..."></textarea>
+      <textarea id="eventDescription" placeholder="Describe the event..." class="input-box"></textarea>
 
       <button onclick="createEvent()">Add Event</button>
     </div>
 
+    <!-- EVENT LIST -->
+    <div class="card">
       <h3>Events</h3>
       <ul id="eventList"></ul>
     </div>
 
-    <div class="section">
-      <h3>Book Room</h3>
-      <input id="roomName" placeholder="Room name">
-      <input id="roomDate" type="date">
-      <button onclick="bookRoom()">Book Room</button>
-
+    <!-- ROOM BOOKING REMOVED (Commit 4) -->
+    <div id="teacherRoomSection" class="card">
       <h3>Room Bookings</h3>
-
-      <div id="teacherRoomSection">
-        <h2>Book a Room</h2>
-
-        <input id="roomName" placeholders="Room Name">
-        <input id="roomDate" type="date">
-
-        <button onclick="bookRoom()">Book Room</button>
-      <ul id="roomList"></ul>
+      <p>Room booking has moved to its own page.</p>
+      <button class="nav-btn" onclick="location.href='bookings.html'">Go to Bookings</button>
     </div>
+
+    <!-- TEMP CALENDAR (will be replaced in Commit 6) -->
+    <div class="card">
+      <h3>Calendar View</h3>
+      <div id="calendar"></div>
+    </div>
+
   </div>
 
+  <script src="auth.js"></script>
   <script src="script.js"></script>
 
-  <script src-"auth.js"></script>
-  <script>
-    checkAccess(); // prevents opening dashboard without login
-  </script>
 </body>
 </html>
-
-<h3>Calendar View</h3>
-<div> id="calendar"</div>
-
