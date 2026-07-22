@@ -15,4 +15,46 @@ function createBooking() {
         alert("Please fill in all fields");
         return;
     }
+
+    // Prevent double booking 
+    if(bookings.some(b => b.room === room && b.date === date)) {
+        alert("Room already booked");
+        return;
+    }
+
+    bookings.push({room,date});
+        saveBookings();
+        renderBookings();
+
+        document.getElementById("roomName").value = "";
+        document,getElementById("roomDate").value = "";
+
+    
+}
+
+// RENDER BOOKINGS (PAST/FAILURE)
+function renderBookings() {
+    const today = new Date();
+    
+    const currentlist = document.getElementById("currentBookings");
+    const pastlist = document.getElementById("pastBookings");
+    const futurelist = document.getElementById("futureBookings");
+
+    currentlist.innerHTML = "";
+    pastlist.innerHTML = "";
+    futurelist.innerHTML = "";
+
+    bookings.forEach(b=> {
+        const bookingDate = new Date(b.date);
+        const li = document.createElement("li");
+        li.textContext = `${b.room} — ${b.date}`;
+
+     if (bookingDate < today) {
+            pastList.appendChild(li);
+        } else if (bookingDate.toDateString() === today.toDateString()) {
+            currentList.appendChild(li);
+        } else {
+            futureList.appendChild(li);
+        }
+    });
 }
