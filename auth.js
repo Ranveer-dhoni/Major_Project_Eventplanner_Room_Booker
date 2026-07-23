@@ -1,7 +1,12 @@
 function checkAccess() {
-    // Disabled temporarily so nothing breaks
-    return;
+    const role = localStorage.getItem("role");
+    if (!role) {
+        location.href = "index.html";
+        return;
+    }
 }
+
+
 
 
 

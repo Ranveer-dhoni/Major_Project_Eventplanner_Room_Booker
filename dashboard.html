@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="checkAccess()">
 
     <div class="nav-bar card">
         <button class="nav-btn" onclick="location.href='home.html'">Home</button>
@@ -20,7 +20,7 @@
 
         <h2>Event Planner</h2>
 
-        <div class="card">
+        <div id="teacherEventSection" class="card">
             <h3>Create Event</h3>
 
             <input id="eventName" placeholder="Event Name">
@@ -41,6 +41,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
