@@ -37,3 +37,4 @@ function renderBookings() {
 
 renderBookings();
 
+
