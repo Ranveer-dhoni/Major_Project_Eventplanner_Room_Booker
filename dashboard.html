@@ -1,61 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="checkAccess()">
 
-  <!-- Navigation Bar -->
-  <div class="nav-bar card">
-    <button class="nav-btn" onclick="location.href='home.html'">Home</button>
-    <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
-    <button class="nav-btn" onclick="location.href='bookings.html'">Bookings</button>
-    <button class="nav-btn" onclick="location.href='events.html'">Events</button>
-  </div>
-
-  <div class="container">
-
-    <h2>Event Planner</h2>
-
-    <!-- TEACHER EVENT SECTION -->
-    <div id="teacherEventSection" class="card">
-      <h3>Create Event</h3>
-
-      <input id="eventName" placeholder="Event Name">
-      <input id="eventDate" type="date">
-
-      <label for="eventDescription">Event Description:</label>
-      <textarea id="eventDescription" placeholder="Describe the event..." class="input-box"></textarea>
-
-      <button onclick="createEvent()">Add Event</button>
+    <div class="nav-bar card">
+        <button class="nav-btn" onclick="location.href='home.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
+        <button class="nav-btn" onclick="location.href='bookings.html'">Bookings</button>
+        <button class="nav-btn" onclick="location.href='events.html'">Events</button>
     </div>
 
-    <!-- EVENT LIST -->
-    <div class="card">
-      <h3>Events</h3>
-      <ul id="eventList"></ul>
+    <div class="container">
+
+        <h2>Event Planner</h2>
+
+        <div id="teacherEventSection" class="card">
+            <h3>Create Event</h3>
+
+            <input id="eventName" placeholder="Event Name">
+            <input id="eventDate" type="date">
+            <textarea id="eventDescription" placeholder="Describe the event..."></textarea>
+
+            <button onclick="createEvent()">Add Event</button>
+        </div>
+
+        <div class="card">
+            <h3>Events</h3>
+            <ul id="eventList"></ul>
+        </div>
+
+        <div id="teacherRoomSection" class="card">
+            <h3>Room Bookings</h3>
+            <button class="nav-btn" onclick="location.href='bookings.html'">Go to Bookings</button>
+        </div>
+
+        <div class="card">
+            <h3>Calendar View</h3>
+            <div id="calendar"></div>
+        </div>
+
     </div>
 
-    <!-- ROOM BOOKING LINK -->
-    <div id="teacherRoomSection" class="card">
-      <h3>Room Bookings</h3>
-      <p>Room booking has moved to its own page.</p>
-      <button class="nav-btn" onclick="location.href='bookings.html'">Go to Bookings</button>
-    </div>
-
-    <!-- SIMPLE CALENDAR VIEW -->
-    <div class="card">
-      <h3>Calendar View</h3>
-      <div id="calendar"></div>
-    </div>
-
-  </div>
-
-  <script src="auth.js"></script>
-  <script src="script.js"></script>
-
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
 

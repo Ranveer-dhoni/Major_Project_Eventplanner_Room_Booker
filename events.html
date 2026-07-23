@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Events</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="checkAccess()">
 
-    <!-- Navigation Bar -->
     <div class="nav-bar card">
         <button class="nav-btn" onclick="location.href='home.html'">Home</button>
         <button class="nav-btn" onclick="location.href='dashboard.html'">Dashboard</button>
@@ -19,18 +19,18 @@
 
         <h2>All Events</h2>
 
-        <!-- Teacher-only controls -->
         <div id="teacherEventTools" class="card">
             <p>Teachers can delete events here.</p>
         </div>
 
-        <!-- Event list -->
         <div class="card">
             <ul id="eventsList"></ul>
         </div>
+
     </div>
 
     <script src="auth.js"></script>
     <script src="events.js"></script>
 </body>
 </html>
+

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Bookings</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="checkAccess()">
 
-    <!-- Navigation Bar -->
     <div class="nav-bar card">
         <button class="nav-btn" onclick="location.href='home.html'">Home</button>
         <button class="nav-btn" onclick="location.href='dashboard.html'">Dashboard</button>
@@ -19,7 +19,6 @@
 
         <h2>Room Bookings</h2>
 
-        <!-- Teacher-only booking form -->
         <div id="teacherBookingSection" class="card">
             <h3>Create a booking</h3>
 
@@ -29,13 +28,11 @@
             <button onclick="createBooking()">Add Booking</button>
         </div>
 
-        <!-- Past bookings -->
         <div class="card">
             <h3>Past Bookings</h3>
             <ul id="pastBookings"></ul>
         </div>
 
-        <!-- Future bookings -->
         <div class="card">
             <h3>Future Bookings</h3>
             <ul id="futureBookings"></ul>
