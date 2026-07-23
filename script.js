@@ -49,34 +49,6 @@ function renderEvents() {
 }
 
 // ===============================
-// SIMPLE DASHBOARD CALENDAR
-// ===============================
-function loadCalendar() {
-    const calendar = document.getElementById("calendar");
-    if (!calendar) return;
-
-    const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
-
-    calendar.innerHTML = "";
-
-    const combined = [
-        ...events.map(e => ({ type: "Event", name: e.name, date: e.date })),
-        ...bookings.map(b => ({ type: "Room", name: b.room, date: b.date }))
-    ];
-
-    combined.forEach(item => {
-        const div = document.createElement("div");
-        div.style.padding = "10px";
-        div.style.margin = "5px 0";
-        div.style.background = "rgba(255,255,255,0.2)";
-        div.style.borderRadius = "8px";
-
-        div.textContent = `${item.date} — ${item.type}: ${item.name}`;
-        calendar.appendChild(div);
-    });
-}
-
-// ===============================
 // ROLE RESTRICTIONS
 // ===============================
 function applyRoleRestrictions() {
@@ -84,10 +56,7 @@ function applyRoleRestrictions() {
 
     if (role === "student") {
         const eventSection = document.getElementById("teacherEventSection");
-        const roomSection = document.getElementById("teacherRoomSection");
-
         if (eventSection) eventSection.style.display = "none";
-        if (roomSection) roomSection.style.display = "none";
     }
 }
 
@@ -95,6 +64,6 @@ function applyRoleRestrictions() {
 // AUTO-RUN
 // ===============================
 renderEvents();
-loadCalendar();
 applyRoleRestrictions();
+
 
