@@ -1,5 +1,5 @@
 // ===============================
-// LOAD EVENTS
+// EVENTS STORAGE
 // ===============================
 let events = JSON.parse(localStorage.getItem("events") || "[]");
 
@@ -24,14 +24,13 @@ function createEvent() {
     saveEvents();
     renderEvents();
 
-    // Clear inputs
     document.getElementById("eventName").value = "";
     document.getElementById("eventDate").value = "";
     document.getElementById("eventDescription").value = "";
 }
 
 // ===============================
-// RENDER EVENTS
+// RENDER EVENTS ON DASHBOARD
 // ===============================
 function renderEvents() {
     const list = document.getElementById("eventList");
@@ -50,7 +49,7 @@ function renderEvents() {
 }
 
 // ===============================
-// SIMPLE DASHBOARD CALENDAR LIST
+// SIMPLE DASHBOARD CALENDAR
 // ===============================
 function loadCalendar() {
     const calendar = document.getElementById("calendar");
