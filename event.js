@@ -30,3 +30,4 @@ function deleteEvent(index) {
 renderAllEvents();
 
 
+

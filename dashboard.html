@@ -8,8 +8,10 @@
 
 <body onload="checkAccess()">
 
+    <!-- DASHBOARD NAV BAR -->
     <div class="nav-bar card">
         <button class="nav-btn" onclick="location.href='home.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='dashboard.html'">Dashboard</button>
         <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
         <button class="nav-btn" onclick="location.href='bookings.html'">Bookings</button>
         <button class="nav-btn" onclick="location.href='events.html'">Events</button>
@@ -30,7 +32,7 @@
             <button onclick="createEvent()">Add Event</button>
         </div>
 
-        <!-- EVENT LIST -->
+        <!-- EVENT PREVIEW -->
         <div class="card">
             <h3>Events</h3>
             <ul id="eventList"></ul>
@@ -42,6 +44,8 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
 
 
 

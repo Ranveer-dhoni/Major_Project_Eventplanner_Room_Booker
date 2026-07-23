@@ -1,15 +1,9 @@
-// ===============================
-// EVENTS STORAGE
-// ===============================
 let events = JSON.parse(localStorage.getItem("events") || "[]");
 
 function saveEvents() {
     localStorage.setItem("events", JSON.stringify(events));
 }
 
-// ===============================
-// CREATE EVENT
-// ===============================
 function createEvent() {
     const name = document.getElementById("eventName").value.trim();
     const date = document.getElementById("eventDate").value.trim();
@@ -29,9 +23,6 @@ function createEvent() {
     document.getElementById("eventDescription").value = "";
 }
 
-// ===============================
-// RENDER EVENTS ON DASHBOARD
-// ===============================
 function renderEvents() {
     const list = document.getElementById("eventList");
     if (!list) return;
@@ -48,9 +39,6 @@ function renderEvents() {
     });
 }
 
-// ===============================
-// ROLE RESTRICTIONS
-// ===============================
 function applyRoleRestrictions() {
     const role = localStorage.getItem("role");
 
@@ -60,10 +48,8 @@ function applyRoleRestrictions() {
     }
 }
 
-// ===============================
-// AUTO-RUN
-// ===============================
 renderEvents();
 applyRoleRestrictions();
+
 
 
