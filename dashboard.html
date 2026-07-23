@@ -8,6 +8,7 @@
 
 <body onload="checkAccess()">
 
+    <!-- Navigation Bar -->
     <div class="nav-bar card">
         <button class="nav-btn" onclick="location.href='home.html'">Home</button>
         <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
@@ -19,6 +20,7 @@
 
         <h2>Event Planner</h2>
 
+        <!-- TEACHER EVENT SECTION -->
         <div id="teacherEventSection" class="card">
             <h3>Create Event</h3>
 
@@ -29,16 +31,19 @@
             <button onclick="createEvent()">Add Event</button>
         </div>
 
+        <!-- EVENT LIST -->
         <div class="card">
             <h3>Events</h3>
             <ul id="eventList"></ul>
         </div>
 
+        <!-- ROOM BOOKING LINK -->
         <div id="teacherRoomSection" class="card">
             <h3>Room Bookings</h3>
             <button class="nav-btn" onclick="location.href='bookings.html'">Go to Bookings</button>
         </div>
 
+        <!-- SIMPLE CALENDAR VIEW -->
         <div class="card">
             <h3>Calendar View</h3>
             <div id="calendar"></div>
@@ -48,7 +53,9 @@
 
     <script src="auth.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
+
 
 

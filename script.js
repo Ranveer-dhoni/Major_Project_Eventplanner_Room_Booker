@@ -1,20 +1,22 @@
-// =========================================================
-// EVENTS (DASHBOARD)
-// =========================================================
-
+// ===============================
+// LOAD EVENTS
+// ===============================
 let events = JSON.parse(localStorage.getItem("events") || "[]");
 
 function saveEvents() {
     localStorage.setItem("events", JSON.stringify(events));
 }
 
+// ===============================
+// CREATE EVENT
+// ===============================
 function createEvent() {
-    let name = document.getElementById("eventName").value.trim();
-    let date = document.getElementById("eventDate").value.trim();
-    let description = document.getElementById("eventDescription").value.trim();
+    const name = document.getElementById("eventName").value.trim();
+    const date = document.getElementById("eventDate").value.trim();
+    const description = document.getElementById("eventDescription").value.trim();
 
     if (!name || !date) {
-        alert("Please fill in all fields");
+        alert("Please fill in event name and date");
         return;
     }
 
@@ -22,36 +24,38 @@ function createEvent() {
     saveEvents();
     renderEvents();
 
+    // Clear inputs
     document.getElementById("eventName").value = "";
     document.getElementById("eventDate").value = "";
     document.getElementById("eventDescription").value = "";
 }
 
+// ===============================
+// RENDER EVENTS
+// ===============================
 function renderEvents() {
-    let list = document.getElementById("eventList");
+    const list = document.getElementById("eventList");
     if (!list) return;
 
     list.innerHTML = "";
 
     events.forEach(e => {
-        let li = document.createElement("li");
+        const li = document.createElement("li");
         li.innerHTML = `
             <strong>${e.name}</strong> — ${e.date}<br>
-            <em>${e.description || "No description provided"}</em>
+            <em>${e.description || "No description"}</em>
         `;
         list.appendChild(li);
     });
 }
 
-// =========================================================
-// SIMPLE CALENDAR ON DASHBOARD (LIST VIEW)
-// =========================================================
-
+// ===============================
+// SIMPLE DASHBOARD CALENDAR LIST
+// ===============================
 function loadCalendar() {
     const calendar = document.getElementById("calendar");
     if (!calendar) return;
 
-    const events = JSON.parse(localStorage.getItem("events") || "[]");
     const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
 
     calendar.innerHTML = "";
@@ -73,10 +77,9 @@ function loadCalendar() {
     });
 }
 
-// =========================================================
-/* ROLE RESTRICTIONS */
-// =========================================================
-
+// ===============================
+// ROLE RESTRICTIONS
+// ===============================
 function applyRoleRestrictions() {
     const role = localStorage.getItem("role");
 
@@ -89,10 +92,10 @@ function applyRoleRestrictions() {
     }
 }
 
-// =========================================================
-// AUTO-RUN ON DASHBOARD
-// =========================================================
-
+// ===============================
+// AUTO-RUN
+// ===============================
 renderEvents();
 loadCalendar();
 applyRoleRestrictions();
+
