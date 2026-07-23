@@ -17,10 +17,6 @@ function createEvent() {
     events.push({ name, date, description });
     saveEvents();
     renderEvents();
-
-    document.getElementById("eventName").value = "";
-    document.getElementById("eventDate").value = "";
-    document.getElementById("eventDescription").value = "";
 }
 
 function renderEvents() {
@@ -39,17 +35,8 @@ function renderEvents() {
     });
 }
 
-function applyRoleRestrictions() {
-    const role = localStorage.getItem("role");
-
-    if (role === "student") {
-        const eventSection = document.getElementById("teacherEventSection");
-        if (eventSection) eventSection.style.display = "none";
-    }
-}
-
 renderEvents();
-applyRoleRestrictions();
+
 
 
 

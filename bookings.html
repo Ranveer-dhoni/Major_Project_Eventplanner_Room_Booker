@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Bookings</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,6 +10,7 @@
 
     <div class="nav-bar card">
         <button class="nav-btn" onclick="location.href='home.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='dashboard.html'">Dashboard</button>
         <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
         <button class="nav-btn" onclick="location.href='bookings.html'">Bookings</button>
         <button class="nav-btn" onclick="location.href='events.html'">Events</button>
@@ -17,29 +18,27 @@
 
     <div class="container">
 
-        <h2>Event Planner</h2>
+        <h2>Room Bookings</h2>
 
-        <!-- CREATE EVENT -->
-        <div id="teacherEventSection" class="card">
-            <h3>Create Event</h3>
+        <div id="teacherBookingSection" class="card">
+            <h3>Create Booking</h3>
 
-            <input id="eventName" placeholder="Event Name">
-            <input id="eventDate" type="date">
-            <textarea id="eventDescription" placeholder="Describe the event..."></textarea>
+            <input id="bookingRoom" placeholder="Room Name">
+            <input id="bookingDate" type="date">
+            <textarea id="bookingReason" placeholder="Reason"></textarea>
 
-            <button onclick="createEvent()">Add Event</button>
+            <button onclick="createBooking()">Add Booking</button>
         </div>
 
-        <!-- EVENT LIST (Preview Only) -->
         <div class="card">
-            <h3>Events</h3>
-            <ul id="eventList"></ul>
+            <h3>Bookings</h3>
+            <ul id="bookingList"></ul>
         </div>
 
     </div>
 
     <script src="auth.js"></script>
-    <script src="script.js"></script>
+    <script src="bookings.js"></script>
 </body>
 </html>
 
