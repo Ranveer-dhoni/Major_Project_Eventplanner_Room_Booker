@@ -29,3 +29,4 @@ function deleteEvent(index) {
 
 renderAllEvents();
 
+
