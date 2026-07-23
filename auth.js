@@ -1,33 +1,44 @@
+// =========================================================
+// USER DATABASE
+// =========================================================
+
 const users = [
-    {username: "teacher1", password: "teacher123, role: "teacher" },
-    {username: "student1", password: "student123", role: "student"}
+    { username: "teacher", password: "1234", role: "teacher" },
+    { username: "student", password: "1234", role: "student" }
 ];
+
+// =========================================================
+// SIMPLE ENCRYPTION (Caesar shift)
+// =========================================================
 
 function encrypt(text) {
     let result = "";
-    for(let i = 0; <text.length; i++) {
-        result += String.fromCharCode(text.charCodeAt(i) + 3)
+    for (let i = 0; i < text.length; i++) {
+        result += String.fromCharCode(text.charCodeAt(i) + 3);
     }
-    return result 
+    return result;
 }
 
 function decrypt(text) {
     let result = "";
     for (let i = 0; i < text.length; i++) {
-        result += String.fromCharCode(text.charCodeAt(i) -3);
+        result += String.fromCharCode(text.charCodeAt(i) - 3);
     }
     return result;
 }
 
-function loginUser() {
-    const username = document.getElementById("username").ariaValueMax.trim();
-    const password = document.getElementById("password").ariaValueMax.trim()
+// =========================================================
+// LOGIN SYSTEM
+// =========================================================
 
-    if (username || !password) {
+function loginUser() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!username || !password) {
         alert("Please enter both username and password");
         return;
     }
-}
 
     const encryptedPassword = encrypt(password);
 
@@ -44,12 +55,17 @@ function loginUser() {
     localStorage.setItem("role", user.role);
 
     window.location.href = "home.html";
+}
 
-    function checkAccess() {
-        const user = localStorage.getItem("loggedInUser");
-        const role = localStorage.getItem("role");
+// =========================================================
+// ACCESS CONTROL
+// =========================================================
 
-        if (!user || !role) {
-            window.location.href = "index html"
-        }
+function checkAccess() {
+    const user = localStorage.getItem("loggedInUser");
+    const role = localStorage.getItem("role");
+
+    if (!user || !role) {
+        window.location.href = "index.html";
     }
+}
