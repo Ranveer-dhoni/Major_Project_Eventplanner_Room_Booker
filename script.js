@@ -1,5 +1,5 @@
 // =========================================================
-// EVENTS
+// EVENTS (DASHBOARD)
 // =========================================================
 
 let events = JSON.parse(localStorage.getItem("events") || "[]");
@@ -44,25 +44,7 @@ function renderEvents() {
 }
 
 // =========================================================
-// BOOKINGS
-// =========================================================
-
-function loadBookings() {
-    let list = document.getElementById("roomList");
-    if (!list) return;
-
-    list.innerHTML = "";
-    let bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
-
-    bookings.forEach(b => {
-        let li = document.createElement("li");
-        li.textContent = `${b.room} — ${b.date}`;
-        list.appendChild(li);
-    });
-}
-
-// =========================================================
-// CALENDAR (OLD SIMPLE VERSION)
+// SIMPLE CALENDAR ON DASHBOARD (LIST VIEW)
 // =========================================================
 
 function loadCalendar() {
@@ -92,7 +74,7 @@ function loadCalendar() {
 }
 
 // =========================================================
-// ROLE RESTRICTIONS
+/* ROLE RESTRICTIONS */
 // =========================================================
 
 function applyRoleRestrictions() {
@@ -108,10 +90,9 @@ function applyRoleRestrictions() {
 }
 
 // =========================================================
-// AUTO-RUN
+// AUTO-RUN ON DASHBOARD
 // =========================================================
 
 renderEvents();
-loadBookings();
 loadCalendar();
 applyRoleRestrictions();
