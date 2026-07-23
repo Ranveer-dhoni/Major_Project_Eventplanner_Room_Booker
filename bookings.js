@@ -1,73 +1,77 @@
-// LOAD BOOKINGS 
+// ===============================
+// LOAD BOOKINGS
+// ===============================
 let bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
 
-// SAVE BOOKINGS
 function saveBookings() {
     localStorage.setItem("bookings", JSON.stringify(bookings));
 }
 
-// CREATE BOOKING (TEACHER ONLY)
+// ===============================
+// CREATE BOOKING (Teacher only)
+// ===============================
 function createBooking() {
-    const room = document.getElementById("roomName").ariaValueMax.trim();
-    const date = document.getElementById("roomDate").ariaValueMax.trim();
+    const room = document.getElementById("roomName").value.trim();
+    const date = document.getElementById("roomDate").value.trim();
 
     if (!room || !date) {
         alert("Please fill in all fields");
         return;
     }
 
-    // Prevent double booking 
-    if(bookings.some(b => b.room === room && b.date === date)) {
-        alert("Room already booked");
-        return;
+    for (let b of bookings) {
+        if (b.room === room && b.date === date) {
+            alert("Room already booked!");
+            return;
+        }
     }
 
-    bookings.push({room,date});
-        saveBookings();
-        renderBookings();
+    bookings.push({ room, date });
+    saveBookings();
+    renderBookings();
 
-        document.getElementById("roomName").value = "";
-        document,getElementById("roomDate").value = "";
-
-    
+    document.getElementById("roomName").value = "";
+    document.getElementById("roomDate").value = "";
 }
 
-// RENDER BOOKINGS (PAST/FAILURE)
+// ===============================
+// RENDER BOOKINGS (past/future)
+// ===============================
 function renderBookings() {
-    const today = new Date();
-    
-    const currentlist = document.getElementById("currentBookings");
-    const pastlist = document.getElementById("pastBookings");
-    const futurelist = document.getElementById("futureBookings");
+    const pastList = document.getElementById("pastBookings");
+    const futureList = document.getElementById("futureBookings");
 
-    currentlist.innerHTML = "";
-    pastlist.innerHTML = "";
-    futurelist.innerHTML = "";
+    pastList.innerHTML = "";
+    futureList.innerHTML = "";
 
-    bookings.forEach(b=> {
-        const bookingDate = new Date(b.date);
+    const today = new Date().toISOString().split("T")[0];
+
+    bookings.forEach(b => {
         const li = document.createElement("li");
-        li.textContext = `${b.room} — ${b.date}`;
+        li.textContent = `${b.room} — ${b.date}`;
 
-     if (bookingDate < today) {
+        if (b.date < today) {
             pastList.appendChild(li);
-        } else if (bookingDate.toDateString() === today.toDateString()) {
-            currentList.appendChild(li);
         } else {
             futureList.appendChild(li);
         }
     });
 }
 
+// ===============================
 // ROLE RESTRICTIONS
+// ===============================
 function applyBookingRestrictions() {
     const role = localStorage.getItem("role");
 
     if (role === "student") {
-        const teacherSection = document.getElementById("teacherBookingSection");
-        if (teacherSection) teacherSection.style.display = "none";
+        const section = document.getElementById("teacherBookingSection");
+        if (section) section.style.display = "none";
     }
 }
 
+// ===============================
+// AUTO-RUN
+// ===============================
 renderBookings();
 applyBookingRestrictions();

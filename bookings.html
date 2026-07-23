@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Bookings</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <title>Bookings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body onload="checkAccess()">
+<body onload="checkAccess()">
 
-        <!-- Navigation Bar -->
-         <div class="nav-bar card">
-            <button class="nav-btn" onclick="location.href='home.html'">Home</button>
-            <button class="nav-btn" onclick="location.href='dashboard.html'">Dashboard</button>
-            <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
-            <button class="nav-btn" onclick="location.href='events.html'">Events</button>
-         </div>
+    <!-- Navigation Bar -->
+    <div class="nav-bar card">
+        <button class="nav-btn" onclick="location.href='home.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='dashboard.html'">Dashboard</button>
+        <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
+        <button class="nav-btn" onclick="location.href='events.html'">Events</button>
+    </div>
 
-         <div class="container">
+    <div class="container">
 
-            <h2> Room Bookings</h2>
+        <h2>Room Bookings</h2>
 
-            <!-- Teacher-only booking form -->
-             <div id="teacherBookingSection" class="card">
-                <h3>Create a booking</h3>
+        <!-- Teacher-only booking form -->
+        <div id="teacherBookingSection" class="card">
+            <h3>Create a booking</h3>
 
-                <input id="roomName" placeholders="Room Name">
-                <input id="roomDate" type="date">
+            <input id="roomName" placeholder="Room Name">
+            <input id="roomDate" type="date">
 
-                <button onclick="createBooking()">Add Booking</button>
-             </div>
+            <button onclick="createBooking()">Add Booking</button>
+        </div>
 
-             <!-- Current bookings -->
-             <div class="card">
-                <h3> Past Bookings</h3>
-                <ul id="pastBookings"></ul>
-             </div>
+        <!-- Past bookings -->
+        <div class="card">
+            <h3>Past Bookings</h3>
+            <ul id="pastBookings"></ul>
+        </div>
 
-             <!-- Future bookings -->
-              <div class="card">
-                <h3>Future Bookings</h3>
-                <ul id="futureBookings"></ul>
-              </div>
-           
-         </div>
+        <!-- Future bookings -->
+        <div class="card">
+            <h3>Future Bookings</h3>
+            <ul id="futureBookings"></ul>
+        </div>
 
-         <script src="auth.js></script>
-         <script src="bookings.js"></script>
-    </body>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="bookings.js"></script>
+</body>
 </html>
